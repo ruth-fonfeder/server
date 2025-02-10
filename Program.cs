@@ -29,11 +29,11 @@ builder.Services.AddSwaggerGen();
 var app = builder.Build();
 
 // הפעלת Swagger רק במצב פיתוח
-if (app.Environment.IsDevelopment())
-{
+//if (app.Environment.IsDevelopment())
+//{
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+//}
 
 // הפעלת CORS
 app.UseCors("AllowAll");
@@ -87,4 +87,5 @@ app.MapDelete("/items/{id}", async (ToDoDbContext dbContext, int id) =>
     return Results.NoContent();
 })
 .WithName("DeleteItem");
+app.MapGet("/",()=>"TODOAPI is runnig");
 app.Run();
